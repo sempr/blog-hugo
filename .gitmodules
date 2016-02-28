@@ -1,0 +1,12 @@
+[submodule "uno"]
+	path = themes/uno 
+	url = https://github.com/SenjinDarashiva/hugo-uno.git
+
+[submodule "bootstrap"]
+    path = themes/bootstrap
+    url = https://github.com/mmrath/hugo-bootstrap.git
+
+[submodule "public"]
+	path = public
+	url = git@github.com:sempr/sempr.github.io.git
+	branch = master
