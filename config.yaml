@@ -1,0 +1,13 @@
+baseurl: "https://sempr.github.io/"
+languageCode: "zh-cn"
+title: "瞎扯中的山坡驴"
+canonifyurls: true
+publishdir: "public"
+contentdir: "content"
+layoutdir: "layouts"
+indexes:
+  category: "categories"
+params:
+  description: "山坡驴真的在瞎扯啊瞎扯啊瞎扯。。。"
+  author: "Sempr Wang"
+theme: "ananke"
