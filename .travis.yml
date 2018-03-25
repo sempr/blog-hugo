@@ -1,0 +1,12 @@
+language: bash
+script:
+    ./build.sh
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  repo: sempr/sempr.github.io
+  on:
+    branch: master
+  local-dir: public
