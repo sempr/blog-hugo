@@ -5,7 +5,7 @@ deploy:
   provider: pages
   skip-cleanup: true
   github-token: $GITHUB_TOKEN
-  keep-history: true
+  keep-history: false 
   repo: sempr/sempr.github.io
   target-branch: master
   on:
