@@ -7,30 +7,30 @@ date: 2017-06-26T16:17:45+08:00
 
 从代码里看，mtr.c 中 直接有这么一个片段
 
-```
-723   /*
-724        mtr used to be suid root.  It should not be with this version.
-725        We'll check so that we can notify people using installation
-726        mechanisms with obsolete assumptions.
-727      */
-728     if ((geteuid() != getuid()) || (getegid() != getgid())) {
-729         error(EXIT_FAILURE, errno, "mtr should not run suid");
-730     }
-```
+{{< highlight c "linenos=table,linenostart=723" >}}
+/*
+        mtr used to be suid root.  It should not be with this version.
+        We'll check so that we can notify people using installation
+        mechanisms with obsolete assumptions.
+      */
+     if ((geteuid() != getuid()) || (getegid() != getgid())) {
+         error(EXIT_FAILURE, errno, "mtr should not run suid");
+     }
+{{< / highlight >}}
 
 明显的就是禁止了通过 `chmod u+s` 的方式执行`mtr`了
 
 接下来要怎么办呢？以前允许了现在不行了肯定是有 _安全_ 原因的，查查相关说明文档再看看咯。于是我找到了下面这一段:
 
-```
- 35 3. Make mtr-packet a setuid-root binary.
- 36
- 37 The mtr-packet binary can be made setuid-root, which is what "make install"
- 38 does by default.
- 39
- 40 When mtr-packet is installed as suid-root, some concern over security is
- 41 justified.  mtr-packet does the following two things after it is launched:
-```
+{{< highlight c "linenos=table,linenostart=35" >}}
+3. Make mtr-packet a setuid-root binary.
+
+The mtr-packet binary can be made setuid-root, which is what "make install"
+does by default.
+
+When mtr-packet is installed as suid-root, some concern over security is
+justified.  mtr-packet does the following two things after it is launched:
+{{< / highlight >}}
 
 也就是说 mtr 不允许 setuid-root 但是 mtr-packet 允许，推测是因为以前的做法可能有安全隐患，所以只把需要依赖root的逻辑放到了mtr-packet里，把不需要root但是给了root可能带来安全问题的部分继续放在mtr中使用普通帐户执行，执行mtr的时候再调用mtr-packet，通过 suid-root 的方式获得root的权限。
 

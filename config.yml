@@ -10,4 +10,4 @@ indexes:
 params:
   description: "山坡驴真的在瞎扯啊瞎扯啊瞎扯。。。"
   author: "Sempr Wang"
-theme: "hyde"
+theme: "minos"
