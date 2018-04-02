@@ -51,6 +51,19 @@ Requires=iptables.service
 
 如此一来 如果iptables重启 那么docker也会跟着一起重启掉
 
+为了避免对iptables文件的修改，可以通过在docker.service.d中添加一个文件的方式来达到同样的目的，方法如下
+
+{{< highlight bash >}}
+
+mkdir -p /etc/systemd/system/docker.service.d/
+cat << "EOF" > /etc/systemd/system/docker.service.d/iptables.conf
+[Unit]
+Requires=iptables.service
+EOF
+systemctl daemon-reload
+
+{{< / highlight >}}
+
 以下是受影响部分的iptables的配置
 
 {{< highlight bash >}}
