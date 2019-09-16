@@ -7,11 +7,14 @@ draft: false
 
 1. 开通账号
 
-    访问[淘宝联盟](https://pub.alimama.com)，用淘宝账号登录，如果有遇到需要实名认证的，请参照提示操作，首次开通可能需要一个小时左右，等开通后可继续下一步。
+    访问[淘宝联盟](https://pub.alimama.com)，用淘宝账号登录，此处推荐使用手机淘宝扫码登录
 
 2. 创建推广渠道
 
-    访问[媒体管理](https://pub.alimama.com/myunion.htm?#!/manage/site/site?tab=4&toPage=1)，创建一个导购推广，内容随便填写。
+    访问[媒体管理](https://pub.alimama.com/myunion.htm?#!/manage/site/site?tab=4&toPage=1)，创建一个**导购推广**，内容随便填写。
+
+    如果有遇到需要实名认证的，请参照提示操作，首次开通可能需要一个小时左右(实际可能很快)，等开通后可继续下一步。
+
 
 3. 创建推广位
 
